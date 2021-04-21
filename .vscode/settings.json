@@ -1,0 +1,15 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "work":true,
+        "modelsim.ini":true,
+        "vish_stacktrace.vstf":true,
+        "vlog.opt":true,
+        "vsim.wlf":true,
+        "tcl_stacktrace.txt":true
+    }
+}
