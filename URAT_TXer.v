@@ -42,7 +42,7 @@ else begin
             con<=con+1;
         end
 
-        if(con==0)begin
+        if(con==5000-1)begin
             send_buf[8:0]<=send_buf[9:1];
             send_flag[8:0]<=send_flag[9:1];
         end
@@ -73,7 +73,7 @@ initial begin
     #30 en_data_in<=1;
     #10 en_data_in<=0;
 
-    #1000 $stop;
+    #1000000 $stop;
 end
 
 always #5 clk<=~clk;

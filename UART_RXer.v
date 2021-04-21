@@ -174,7 +174,7 @@ wire RX;
 wire[7:0] data_out;
 wire en_data_out;
 
-reg[25:0] RX_send;//里面装有串口数据
+reg[35:0] RX_send;//里面装有串口数据
 assign RX=RX_send[0];
 
 reg[12:0] con;
@@ -182,9 +182,9 @@ reg[12:0] con;
 UART_RXer UART_RXer(.clk(clk), .res(res), .RX(RX), .data_out(data_out), .en_data_out(en_data_out));
 
 initial begin
-    clk<=0;res<=0;RX_send<={1'b1,8'haa,1'b0,16'hffff};con<=0;
+    clk<=0;res<=0;RX_send<={1'b1,8'h26,1'b0,1'b1,8'haa,1'b0,16'hffff};con<=0;
     #17 res<=1;
-    #1000 $stop;
+    #4000000 $stop;
 end
 
 always #5 clk=~clk;
@@ -198,8 +198,8 @@ always@(posedge clk)begin
     end
 
     if(con==0)begin
-        RX_send[24:0]<=RX_send[25:1];
-        RX_send[25]<=RX_send[0];
+        RX_send[34:0]<=RX_send[35:1];
+        RX_send[35]<=RX_send[0];
     end
 
 
